@@ -28,7 +28,6 @@
       "FastController\\": "src"
     },
     "files": [
-      "src/helpers.php"
     ]
   },
   "autoload-dev": {
