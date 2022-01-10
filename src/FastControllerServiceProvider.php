@@ -25,6 +25,12 @@ class FastControllerServiceProvider extends ServiceProvider
             $configPath => config_path('fast-controller.php'),
         ], 'config');
 
+        // Publish a router file
+        $configPath = __DIR__.'./fc-routes.php';
+        $this->publishes([
+            $configPath => app_path('routes/fc-routes.php'),
+        ], 'config');
+
         //Publish views
         $this->publishes([
             __DIR__ . '/../resources/views' => config('fast-controller.views_path'),
