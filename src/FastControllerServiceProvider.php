@@ -16,7 +16,7 @@ class FastControllerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $viewPath = __DIR__.'/../resources/views';
+        $viewPath = __DIR__ . '/../resources/views';
         $this->loadViewsFrom($viewPath, 'fast-controller');
 
         // Publish a config file
@@ -27,7 +27,7 @@ class FastControllerServiceProvider extends ServiceProvider
 
         //Publish views
         $this->publishes([
-            __DIR__.'/../resources/views' => config('fast-controller.views_path'),
+            __DIR__ . '/../resources/views' => config('fast-controller.views_path'),
         ], 'views');
 
         //Register commands
