@@ -28,6 +28,7 @@
       "FastController\\": "src"
     },
     "files": [
+      "src/fc-routes.php"
     ]
   },
   "autoload-dev": {

@@ -30,9 +30,6 @@ class FastControllerServiceProvider extends ServiceProvider
             __DIR__.'/../resources/views' => config('fast-controller.views_path'),
         ], 'views');
 
-        //Include routes
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
-
         //Register commands
         $this->commands([FastControllerGenerateCommand::class]);
     }
