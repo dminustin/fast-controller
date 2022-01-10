@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace FastController;
 
+use FastController\Console\FastControllerGenerateCommand;
 use Illuminate\Support\ServiceProvider;
 
 class FastControllerServiceProvider extends ServiceProvider
@@ -26,14 +27,14 @@ class FastControllerServiceProvider extends ServiceProvider
 
         //Publish views
         $this->publishes([
-            __DIR__.'/../resources/views' => config('l5-swagger.defaults.paths.views'),
+            __DIR__.'/../resources/views' => config('fast-controller.views_path'),
         ], 'views');
 
         //Include routes
         $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         //Register commands
-        $this->commands([GenerateDocsCommand::class]);
+        $this->commands([FastControllerGenerateCommand::class]);
     }
 
     /**
@@ -43,19 +44,11 @@ class FastControllerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $configPath = __DIR__.'/../config/l5-swagger.php';
-        $this->mergeConfigFrom($configPath, 'l5-swagger');
+        $configPath = __DIR__.'/../config/fast-controller.php';
+        $this->mergeConfigFrom($configPath, 'fast-controller');
 
-        $this->app->singleton('command.l5-swagger.generate', function ($app) {
-            return $app->make(GenerateDocsCommand::class);
-        });
-
-        $this->app->bind(Generator::class, function ($app) {
-            $documentation = config('l5-swagger.default');
-
-            $factory = $app->make(GeneratorFactory::class);
-
-            return $factory->make($documentation);
+        $this->app->singleton('command.fast-controller:create', function ($app) {
+            return $app->make(FastControllerGenerateCommand::class);
         });
     }
 
