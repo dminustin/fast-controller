@@ -16,12 +16,12 @@ class FastControllerServiceProvider extends ServiceProvider
     public function boot()
     {
         $viewPath = __DIR__.'/../resources/views';
-        $this->loadViewsFrom($viewPath, 'l5-swagger');
+        $this->loadViewsFrom($viewPath, 'fast-controller');
 
         // Publish a config file
-        $configPath = __DIR__.'/../config/l5-swagger.php';
+        $configPath = __DIR__.'/../config/fast-controller.php';
         $this->publishes([
-            $configPath => config_path('l5-swagger.php'),
+            $configPath => config_path('fast-controller.php'),
         ], 'config');
 
         //Publish views
@@ -67,7 +67,7 @@ class FastControllerServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'command.l5-swagger.generate',
+            'command.fast-controller.generate',
         ];
     }
 }
