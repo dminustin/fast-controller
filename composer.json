@@ -1,49 +1,42 @@
 {
-  "name": "dminustin/fast-controller",
-  "description": "Fast controller creator",
-  "keywords": [
-    "laravel",
-    "api",
-    "controller",
-    "command",
-    "documentation",
-    "API"
-  ],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Danila Minustin",
-      "email": "danila.minustin@gmail.com"
-    }
-  ],
-  "require": {
-    "php": "^7.2 || ^8.0",
-    "laravel/framework": ">=8.40.0 || ^7.0",
-    "ext-json": "*"
-  },
-  "require-dev": {
-  },
-  "autoload": {
-    "psr-4": {
-      "FastController\\": "src"
+    "name": "dminustin/fast-controller",
+    "description": "Fast controller creator",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "api",
+        "controller",
+        "command",
+        "documentation",
+        "API"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Danila Minustin",
+            "email": "danila.minustin@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "laravel/framework": ">=8.40.0 || ^7.0",
+        "ext-json": "*"
     },
-    "files": [
-      "src/fc-routes.php"
-    ]
-  },
-  "autoload-dev": {
-    "psr-4": {
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "FastController\\FastControllerServiceProvider"
-      ]
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": false,
-  "scripts": {
-  }
+    "autoload": {
+        "psr-4": {
+            "FastController\\": "src"
+        },
+        "files": [
+            "src/fc-routes.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FastController\\FastControllerServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": false
 }
