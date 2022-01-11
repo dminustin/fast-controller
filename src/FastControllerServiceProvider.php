@@ -20,20 +20,26 @@ class FastControllerServiceProvider extends ServiceProvider
         $this->loadViewsFrom($viewPath, 'fast-controller');
 
         // Publish a config file
-        $configPath = __DIR__.'/../config/fast-controller.php';
+        $configPath = __DIR__ . '/../config/fast-controller.php';
         $this->publishes([
             $configPath => config_path('fast-controller.php'),
         ], 'config');
 
         // Publish a router file
-        $configPath = __DIR__.'./fc-routes.php';
+        $routerPath = __DIR__ . '/fc-routes.php';
         $this->publishes([
-            $configPath => app_path('routes/fc-routes.php'),
-        ], 'config');
+            $routerPath => base_path('routes/fc-routes.php'),
+        ], 'routes');
+
+        // Publish a base class
+        $routerPath = __DIR__ . '/Controller/BaseFastController.php';
+        $this->publishes([
+            $routerPath => app_path('Http/Controllers/BaseFastController.php'),
+        ], 'routes');
 
         //Publish views
         $this->publishes([
-            __DIR__ . '/../resources/views' => config('fast-controller.views_path'),
+            __DIR__ . '/../resources/views' =>  base_path('resources/views/' . config('fast-controller.views_path')),
         ], 'views');
 
         //Register commands
@@ -47,7 +53,7 @@ class FastControllerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $configPath = __DIR__.'/../config/fast-controller.php';
+        $configPath = __DIR__ . '/../config/fast-controller.php';
         $this->mergeConfigFrom($configPath, 'fast-controller');
 
         $this->app->singleton('command.fast-controller:create', function ($app) {
