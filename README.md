@@ -1,16 +1,31 @@
 # Fast Controller
 
+This console command helps to fast and easy create controllers and routes.
+The command creates controllers on a single responsibility principle. Created class implements abstract method ``handle``
+
+In this method, you can validate input data:
+``$this->prepare($request);``
+
+##installation
+``composer require --dev dminustin/fast-controller``
+
+then,
+
+``php artisan vendor:publish --provider "FastController\FastControllerServiceProvider"``
+
+It will copy config file, base controller and views
+
 ##Configuration
 Change config/fast-controller.php file
 
-##usage
+##Usage
 php artisan fast-controller:create [_path_]
 
-###Example:
+##Example:
 php artisan fast-controller:create articles/search
 
-Will be added a controller controller_path/Articles/ArticlesSearchController
-default controller_path is Http/Controllers/Generated/
+##Source
+https://github.com/dminustin/fast-controller
 
-Additionally, will be added router path, see routes/fc-routes.php 
-
+##Contacts
+Feel free to contact me at Github
