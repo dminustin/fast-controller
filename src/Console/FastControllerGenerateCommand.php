@@ -172,6 +172,6 @@ class FastControllerGenerateCommand extends Command
         $header .= 'use ' . $this->nameSpace . '\\' . $this->className . ';';
         $footer .= $route;
         file_put_contents($routerName, $header . PHP_EOL . self::ROUTER_SEPARATOR . $footer);
-        dd('xx');
+        echo 'Done' . PHP_EOL;
     }
 }
