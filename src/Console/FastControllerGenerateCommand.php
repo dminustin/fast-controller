@@ -150,7 +150,8 @@ class FastControllerGenerateCommand extends Command
             'nameSpace'=>$this->nameSpace,
             'className'=>$this->className,
             'middleware' => $middleware,
-            'rules' => $rules
+            'rules' => $rules,
+            'uri'=>$this->uri,
             ]) . '';
 
         $dir = dirname($this->fileName);
